@@ -1,5 +1,9 @@
-import StockList from '../components/StockList/StockList';
+import Stock from '../components/Stock';
 
 export default function HomePage() {
-  return <StockList />;
+  return (
+    <div className="container">
+      <Stock />
+    </div>
+  );
 }

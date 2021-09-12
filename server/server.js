@@ -55,7 +55,7 @@ function trackTickers(socket) {
   // every N seconds
   const timer = setInterval(function () {
     getQuotes(socket);
-  }, FETCH_INTERVAL);
+  }, socket.handshake.query.interval || FETCH_INTERVAL);
 
   socket.on('disconnect', function () {
     clearInterval(timer);

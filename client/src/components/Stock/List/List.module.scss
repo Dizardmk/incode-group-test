@@ -1,15 +1,16 @@
+@import 'styles/shared';
+
 .list {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border-radius: 5px;
 
   .item {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid $border-color;
   }
 
   .text {
@@ -21,34 +22,34 @@
 
     &.title {
       font-weight: 700;
-      color: #007bff;
+      color: $accent-color;
     }
 
-    &.green {
-      color: #137333;
+    &.profit {
+      color: $profit-color;
 
       &::before {
         content: '+';
       }
     }
-    &.greenChange {
-      color: #137333;
-      background-color: rgba(19, 115, 51, 0.1);
+    &.profitChange {
+      color: $profit-color;
+      background-color: $profit-bg-color;
 
       &::before {
         content: '\2191';
       }
     }
-    &.red {
-      color: #a50e0e;
+    &.loss {
+      color: $loss-color;
 
       &::before {
         content: '-';
       }
     }
-    &.redChange {
-      color: #a50e0e;
-      background-color: rgba(165, 14, 14, 0.1);
+    &.lossChange {
+      color: $loss-color;
+      background-color: $loss-bg-color;
 
       &::before {
         content: '\2193';

@@ -1,0 +1,37 @@
+@import 'styles/shared';
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0 0;
+
+  .input {
+    color: $text-color;
+    background-color: transparent;
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    padding: 10px 20px;
+
+    &:focus {
+      outline-color: $accent-color;
+    }
+  }
+
+  .button {
+    color: $accent-color;
+    background-color: transparent;
+    border: 1px solid $accent-color;
+    border-radius: 5px;
+    transition: 250ms linear;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 20px;
+
+    &:hover,
+    &:focus {
+      color: $secondary-text-color;
+      background-color: $accent-color;
+    }
+  }
+}
