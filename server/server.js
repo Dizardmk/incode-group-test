@@ -7,15 +7,6 @@ const cors = require('cors');
 const FETCH_INTERVAL = 5000;
 const PORT = process.env.PORT || 4000;
 
-const tickers = [
-  'AAPL', // Apple
-  'GOOGL', // Alphabet
-  'MSFT', // Microsoft
-  'AMZN', // Amazon
-  'FB', // Facebook
-  'TSLA', // Tesla
-];
-
 function randomValue(min = 0, max = 1, precision = 0) {
   const random = Math.random() * (max - min) + min;
   return random.toFixed(precision);
@@ -34,6 +25,10 @@ function utcDate() {
 }
 
 function getQuotes(socket) {
+  const tickers = socket.handshake.query.tickers
+    ? socket.handshake.query.tickers.split(',')
+    : [];
+
   const quotes = tickers.map((ticker) => ({
     ticker,
     exchange: 'NASDAQ',

@@ -5,6 +5,8 @@ const socket = io('ws://localhost:4000', {
   query: {
     // default fetch interval for socket.io (ms)
     interval: 5000,
+    // default tickers
+    tickers: ['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'FB', 'TSLA'],
   },
 });
 
@@ -12,9 +14,12 @@ const socket = io('ws://localhost:4000', {
 export const getStocks = () => dispatch => {
   dispatch(actions.getStocksRequest());
   try {
-    socket
-      .emit('start')
-      .on('ticker', data => dispatch(actions.getStocksSuccess(data)));
+    socket.emit('start').on('ticker', data => {
+      dispatch(actions.getStocksSuccess(data));
+      if (data.length === 0) {
+        return socket.disconnect();
+      }
+    });
   } catch (error) {
     dispatch(actions.getStocksError(error));
   }
@@ -52,5 +57,18 @@ export const intervalStocks = fetchInterval => dispatch => {
     dispatch(actions.intervalStocksSuccess());
   } catch (error) {
     dispatch(actions.intervalStocksError(error));
+  }
+};
+
+// Delete stocks item
+export const deleteStock = tickerIndex => dispatch => {
+  dispatch(actions.deleteStockRequest());
+  try {
+    socket.disconnect();
+    socket.io.opts.query.tickers.splice(tickerIndex, 1);
+    socket.connect().emit('start');
+    dispatch(actions.deleteStockSuccess());
+  } catch (error) {
+    dispatch(actions.deleteStockError(error));
   }
 };

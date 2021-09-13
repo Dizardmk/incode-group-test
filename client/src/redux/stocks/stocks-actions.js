@@ -19,3 +19,8 @@ export const stopStocksError = createAction('stocks/STOP-Error');
 export const intervalStocksRequest = createAction('stocks/INTERVAL-Request');
 export const intervalStocksSuccess = createAction('stocks/INTERVAL-Success');
 export const intervalStocksError = createAction('stocks/INTERVAL-Error');
+
+// deleteStock
+export const deleteStockRequest = createAction('stocks/DELETE-Request');
+export const deleteStockSuccess = createAction('stocks/DELETE-Success');
+export const deleteStockError = createAction('stocks/DELETE-Error');

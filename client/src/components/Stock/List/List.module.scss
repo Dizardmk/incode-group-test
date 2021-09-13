@@ -56,4 +56,19 @@
       }
     }
   }
+
+  .button {
+    color: $delete-btn-color;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    transition: 250ms linear;
+    padding: 2.5px 5px;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      background-color: $delete-btn-bg-color;
+    }
+  }
 }

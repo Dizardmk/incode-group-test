@@ -12,6 +12,7 @@ const stopped = createReducer(false, {
   [actions.stopStocksSuccess]: () => true,
   [actions.startStocksSuccess]: () => false,
   [actions.intervalStocksSuccess]: () => false,
+  [actions.deleteStockSuccess]: () => false,
 });
 
 export default combineReducers({
