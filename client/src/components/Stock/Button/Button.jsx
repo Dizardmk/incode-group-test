@@ -1,38 +1,31 @@
-import { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   startStocks,
   stopStocks,
-} from '../../../redux/stocks/stocks-operations';
-import { stocksStopped } from '../../../redux/stocks/stocks-selectors';
+  selectStopped,
+} from '../../../redux/stocks/stocks-slice';
 import { buttonWrapper, button } from './Button.module.scss';
 
 export default function Button() {
-  const isStocksStopped = useSelector(stocksStopped);
+  const isStocksStopped = useSelector(selectStopped);
   const dispatch = useDispatch();
-
-  const onStartHandler = useCallback(() => {
-    dispatch(startStocks());
-  }, [dispatch]);
-
-  const onStopHandler = useCallback(() => {
-    dispatch(stopStocks());
-  }, [dispatch]);
 
   return (
     <div className={buttonWrapper}>
       <button
         type="button"
+        aria-label="start stocks"
         className={button}
-        onClick={onStartHandler}
+        onClick={() => dispatch(startStocks())}
         disabled={!isStocksStopped}
       >
         Start
       </button>
       <button
         type="button"
+        aria-label="stop stocks"
         className={button}
-        onClick={onStopHandler}
+        onClick={() => dispatch(stopStocks())}
         disabled={isStocksStopped}
       >
         Stop

@@ -1,11 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import stocksList from './stocks/stocks-reducer';
+import stocksReducer from './stocks/stocks-slice';
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
-    stocks: stocksList,
+    stocks: stocksReducer,
   },
   devTools: process.env.NODE_ENV === 'development',
 });
-
-export default store;

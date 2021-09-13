@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getStocks } from '../../../redux/stocks/stocks-operations';
-import { getAllStocks } from '../../../redux/stocks/stocks-selectors';
+import { getStocks, selectList } from '../../../redux/stocks/stocks-slice';
 import {
   list,
   item,
@@ -15,7 +14,7 @@ import {
 } from './List.module.scss';
 
 export default function List() {
-  const stocksList = useSelector(getAllStocks);
+  const stocksList = useSelector(selectList);
 
   const dispatch = useDispatch();
 
