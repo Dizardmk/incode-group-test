@@ -14,3 +14,8 @@ export const startStocksError = createAction('stocks/START-Error');
 export const stopStocksRequest = createAction('stocks/STOP-Request');
 export const stopStocksSuccess = createAction('stocks/STOP-Success');
 export const stopStocksError = createAction('stocks/STOP-Error');
+
+// intervalStocks
+export const intervalStocksRequest = createAction('stocks/INTERVAL-Request');
+export const intervalStocksSuccess = createAction('stocks/INTERVAL-Success');
+export const intervalStocksError = createAction('stocks/INTERVAL-Error');

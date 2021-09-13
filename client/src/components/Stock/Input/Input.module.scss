@@ -33,5 +33,11 @@
       color: $secondary-text-color;
       background-color: $accent-color;
     }
+    &:disabled {
+      color: $secondary-text-color;
+      background-color: $border-color;
+      border: 1px solid $border-color;
+      cursor: auto;
+    }
   }
 }

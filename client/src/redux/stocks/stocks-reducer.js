@@ -9,8 +9,9 @@ const list = createReducer([], {
 
 // stopStocks
 const stopped = createReducer(false, {
-  [actions.startStocksSuccess]: () => false,
   [actions.stopStocksSuccess]: () => true,
+  [actions.startStocksSuccess]: () => false,
+  [actions.intervalStocksSuccess]: () => false,
 });
 
 export default combineReducers({

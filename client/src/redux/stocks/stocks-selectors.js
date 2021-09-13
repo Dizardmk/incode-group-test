@@ -1,2 +1,2 @@
-export const getAllStocks = state => state.stocks.list;
-export const stocksStopped = state => state.stocks.stopped;
+export const selectStocksList = state => state.stocks.list;
+export const selectStocksStopped = state => state.stocks.stopped;
